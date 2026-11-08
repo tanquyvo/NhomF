@@ -37,20 +37,66 @@ namespace RanSanMoi
                         break;
 
                     case "2":
-                        Console.Write("1.Them  2.Xoa: ");
+                        Console.WriteLine("1. Them nguoi choi");
+                        Console.WriteLine("2. Xoa nguoi choi");
+                        Console.WriteLine("3. Tim nguoi choi");
+                        Console.WriteLine("4. Cap nhat nguoi choi");
+                        Console.Write("Chon: ");
                         var opt = Console.ReadLine();
+
                         if (opt == "1")
                         {
-                            Console.Write("Ten nguoi choi: ");
-                            quanly.ThemNguoiChoi(Console.ReadLine());
+                            Console.Write("Ten: ");
+                            string t = Console.ReadLine();
+                            Console.Write("Diem: ");
+                            int d = int.Parse(Console.ReadLine());
+                            Console.Write("Thoi gian: ");
+                            double tg = double.Parse(Console.ReadLine());
+
+                            quanly.ThemNguoiChoi(t, d, tg);
+                            Console.WriteLine("Da them nguoi choi!");
                         }
-                        else
+                        else if (opt == "2")
                         {
                             Console.Write("Nhap ten can xoa: ");
-                            quanly.XoaNguoiChoi(Console.ReadLine());
+                            if (quanly.XoaNguoiChoi(Console.ReadLine()))
+                                Console.WriteLine("Da xoa thanh cong!");
+                            else
+                                Console.WriteLine("Khong tim thay nguoi choi!");
                         }
-                        break;
+                        else if (opt == "3")
+                        {
+                            Console.Write("Nhap ten can tim: ");
+                            var p = quanly.LayTheoTen(Console.ReadLine());
+                            if (p == null)
+                                Console.WriteLine("Khong tim thay nguoi choi!");
+                            else
+                                Console.WriteLine($"{p.Value.Ten} - {p.Value.Diem} diem - {p.Value.ThoiGianChoi:F1}s");
+                        }
+                        else if (opt == "4")
+                        {
+                            Console.Write("Nhap ten can sua: ");
+                            var p = quanly.LayTheoTen(Console.ReadLine());
 
+                            if (p == null)
+                            {
+                                Console.WriteLine("Khong tim thay nguoi choi!");
+                            }
+                            else
+                            {
+                                var nc = p.Value;
+                                Console.Write("Nhap diem moi: ");
+                                nc.Diem = int.Parse(Console.ReadLine());
+                                Console.Write("Nhap thoi gian moi: ");
+                                nc.ThoiGianChoi = double.Parse(Console.ReadLine());
+
+                                if (quanly.CapNhatNguoiChoi(ref nc))
+                                    Console.WriteLine("Cap nhat thanh cong!");
+                            }
+                        }
+
+                        Console.ReadLine();
+                        break;
                     case "3":
                         HienThi.XemBangDiem(quanly.LayTatCa());
                         Console.ReadLine();
