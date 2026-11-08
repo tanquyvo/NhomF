@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Game_ran")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3bb828f19c80e0bf6902d997758be73bc7680966")]
 [assembly: System.Reflection.AssemblyProductAttribute("Game_ran")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Game_ran")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
